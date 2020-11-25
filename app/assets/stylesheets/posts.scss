@@ -1,0 +1,32 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// application.scss
+@import "./actiontext.scss";
+#post_button {
+    background-color: rosybrown;
+}
+
+.first-coloumn {
+    background-color: #9ee5e5;
+    width: 21%;
+}
+
+.third-coloumn {
+    background-color: #d6b7ae;
+    width: 22%;
+    img {
+        display: inline;
+        height: 51px;
+        margin-top: 45px;
+        margin-left: 85px
+    }
+}
+
+strong {
+    margin-left: 29px;
+}
+
+h3 {
+    margin-left: 225px;
+}

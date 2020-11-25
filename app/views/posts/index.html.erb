@@ -1,0 +1,71 @@
+
+<div class="container">
+  <div class="row">
+    <div class="first-coloumn">
+      One of three columns
+    </div>
+
+    <div class="second-coloumn">
+    <%= render 'posts/form' %>
+<h3>Listing Posts</h3>
+ 
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Like</th>
+    <th>Comments</th>
+    <th colspan="2"></th>
+
+
+    <th></th>
+  </tr>
+ 
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.postadd %></td>
+      <td><%= post.likes.count %></td>
+      <td><%= post.comments.count %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Update', edit_post_path(post) %></td>
+      <td><%= link_to 'Delete', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+    </div>
+    <div class="third-coloumn">
+    <img src="assets/download.png" alt="Avatar"><br>
+
+    <strong><%= current_user.email %></strong>
+    </div>
+  </div>
+</div>
+
+
+<%# <h1>Listing Posts</h1>
+ 
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Like</th>
+    <th>Comments</th>
+    <th colspan="2"></th>
+
+
+    <th></th>
+  </tr>
+ 
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%#= post.postadd %></td>
+      <td><%#= post.likes.count %></td>
+      <td><%#= post.comments.count %></td>
+      <td><%#= link_to 'Show', post_path(post) %></td>
+      <td><%#= link_to 'Update', edit_post_path(post) %></td>
+      <td><%#= link_to 'Delete', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <%# end %>
+</table> 

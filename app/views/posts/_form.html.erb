@@ -1,0 +1,14 @@
+<%= form_with model: [@post], local: true do |form| %>
+  <p >
+    <%= form.label :postadd %><br>
+    <%= form.rich_text_area :postadd , id: "textarea" %>
+  </p>
+  <p >
+    <%= form.submit id: "post_button" %>
+  </p>
+<% end %>
+
+
+<script type = "text/css">
+ 
+</script>
