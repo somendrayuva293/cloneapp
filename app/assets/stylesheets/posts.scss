@@ -5,11 +5,19 @@
 @import "./actiontext.scss";
 #post_button {
     background-color: rosybrown;
+    border-radius: 45px;
+    float: right;
+    margin-right: 32px;
+    margin-top: -13px;
 }
 
 .first-coloumn {
     background-color: #9ee5e5;
     width: 21%;
+}
+
+.first-coloumn img {
+    width: 9%;
 }
 
 .third-coloumn {
@@ -28,5 +36,40 @@ strong {
 }
 
 h3 {
-    margin-left: 225px;
+    margin-top: 50px;
+}
+
+table {
+    border: 2px solid black;
+    margin-top: 53px;
+}
+
+.followers {
+    position: absolute;
+    right: 242px;
+}
+
+.following {
+    position: absolute;
+    right: 146px;
+}
+
+.posts {
+    position: absolute;
+    right: 85px;
+}
+
+.user_activity {
+    margin-top: 20px;
+}
+
+.timeline {
+    margin-top: 63px;
+}
+
+.user_post {
+    border: 2px solid black;
+    border-radius: 29px;
+    margin: 29px;
+    padding: 25px;
 }

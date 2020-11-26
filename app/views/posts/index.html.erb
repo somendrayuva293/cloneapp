@@ -2,14 +2,18 @@
 <div class="container">
   <div class="row">
     <div class="first-coloumn">
-      One of three columns
+    <h3>Home</h3>
+    <p> Menu</p>
+    <p><img src="assets/Home.png" alt="Home">Home</p>
     </div>
 
-    <div class="second-coloumn">
+<div class="second-coloumn">
     <%= render 'posts/form' %>
-<h3>Listing Posts</h3>
+
  
-<table>
+<%
+=begin%>
+ <table>
   <tr>
     <th>Post</th>
     <th>Like</th>
@@ -19,25 +23,67 @@
 
     <th></th>
   </tr>
+  
+  
  
-  <% @posts.each do |post| %>
+  <%# @posts.each do |post| %>
     <tr>
-      <td><%= post.postadd %></td>
-      <td><%= post.likes.count %></td>
-      <td><%= post.comments.count %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Update', edit_post_path(post) %></td>
-      <td><%= link_to 'Delete', post_path(post),
+      <td><%#= post.postadd %></td>
+      <td><%#= post.likes.count %></td>
+      <td><%#= post.comments.count %></td>
+      <td><%#= link_to 'Show', post_path(post) %></td>
+      <td><%#= link_to 'Update', edit_post_path(post) %></td>
+      <td><%#= link_to 'Delete', post_path(post),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
-  <% end %>
-</table>
-    </div>
+  <%# end %>
+</table> 
+<%
+=end%>
+
+  <div class= "timeline">
+    
+    <% @posts.each do |post| %>
+      <div class= "user_post">
+      <b><%=post.user.email %></b>
+      <%= post.postadd %> 
+      <%= post.likes.count %>
+      
+      <%#= post.comments.count %>
+      <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
+    <% else %>
+      <%= button_to 'Like', post_likes_path(post), method: :post %>
+    <% end %>
+      <%= link_to 'Show', post_path(post) %>
+      <%= link_to 'Update', edit_post_path(post) %>
+      <%= link_to 'Delete', post_path(post),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %> 
+  </div>
+</div>
     <div class="third-coloumn">
     <img src="assets/download.png" alt="Avatar"><br>
-
     <strong><%= current_user.email %></strong>
+    <div class="user_activity">
+      <div class="followers">
+        <b><%=current_user.likes.count%></b><br>
+        <b>Followers</b>
+      </div>
+      <div class="following">
+        <b><%=current_user.posts.count%></b><br>
+        <b>Following</b>
+      </div>
+      <%#byebug%>
+      <div class="posts">
+        <b><%=current_user.posts.count%></b><br>
+        <b>Posts</b>
+      </div>
+    </div>
     </div>
   </div>
 </div>

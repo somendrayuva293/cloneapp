@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # get 'welcome/index'
   # root to: 'welcome#index'
   root to: 'posts#index'
+  post '/users/:id/follow', to: "users#follow", as: "follow_user"
+  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
   resources :posts do
     resources :likes
     resources :comments

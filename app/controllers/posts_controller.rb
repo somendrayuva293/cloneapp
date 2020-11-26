@@ -49,6 +49,20 @@ class PostsController < ApplicationController
           render 'edit'
         end
     end
+
+    def follow
+      @user = User.find(params[:id])
+      @current_user.followees << @user
+      redirect_to user_path(@user)
+    end
+    
+    def unfollow
+      @user = User.find(params[:id])
+      @current_user.followed_users.find_by(followee_id: 
+          @user.id).destroy
+      redirect_to user_path(@user)
+    end
+  
     private
     def post_params
         params.require(:post).permit(:postadd,:user_id)
