@@ -7,7 +7,7 @@
     <p><img src="assets/Home.png" alt="Home">Home</p>
     </div>
 
-<div class="second-coloumn">
+  <div class="second-coloumn">
     <%= render 'posts/form' %>
 
  
@@ -47,6 +47,7 @@
     <% @posts.each do |post| %>
       <div class= "user_post">
       <b><%=post.user.email %></b>
+      
       <%= post.postadd %> 
       <%= post.likes.count %>
       
@@ -66,25 +67,24 @@
     <% end %> 
   </div>
 </div>
-    <div class="third-coloumn">
+  <div class="third-coloumn">
     <img src="assets/download.png" alt="Avatar"><br>
     <strong><%= current_user.email %></strong>
     <div class="user_activity">
       <div class="followers">
-        <b><%=current_user.likes.count%></b><br>
+        <b><%=current_user.followers.count%></b><br>
         <b>Followers</b>
       </div>
       <div class="following">
-        <b><%=current_user.posts.count%></b><br>
+        <b><%=current_user.followees.count%></b><br>
         <b>Following</b>
       </div>
-      <%#byebug%>
       <div class="posts">
         <b><%=current_user.posts.count%></b><br>
         <b>Posts</b>
       </div>
     </div>
-    </div>
+  </div>
   </div>
 </div>
 
