@@ -1,0 +1,3 @@
+$("#like-post-container<%=@post.id%>").html('<%= j render partial: "/posts/like_post", locals: {post: @post} %>');;
+$("#count").text("  <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>")
+

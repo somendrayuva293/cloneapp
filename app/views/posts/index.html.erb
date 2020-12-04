@@ -10,43 +10,11 @@
   <div class="second-coloumn">
     <%= render 'posts/form' %>
 
- 
-<%
-=begin%>
- <table>
-  <tr>
-    <th>Post</th>
-    <th>Like</th>
-    <th>Comments</th>
-    <th colspan="2"></th>
-
-
-    <th></th>
-  </tr>
-  
-  
- 
-  <%# @posts.each do |post| %>
-    <tr>
-      <td><%#= post.postadd %></td>
-      <td><%#= post.likes.count %></td>
-      <td><%#= post.comments.count %></td>
-      <td><%#= link_to 'Show', post_path(post) %></td>
-      <td><%#= link_to 'Update', edit_post_path(post) %></td>
-      <td><%#= link_to 'Delete', post_path(post),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <%# end %>
-</table> 
-<%
-=end%>
-
   <div class= "timeline">
     
     <% @posts.each do |post| %>
       <div class= "user_post">
-      <b><%=post.user.email %></b>
+      <b><%=post.user.email%></b>
       
       <%= post.postadd %> 
       <%= post.likes.count %>
@@ -55,9 +23,9 @@
       <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
       <% if pre_like %>
         <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
-    <% else %>
-      <%= button_to 'Like', post_likes_path(post), method: :post %>
-    <% end %>
+      <% else %>
+        <%= button_to 'Like', post_likes_path(post), method: :post %>
+      <% end %>
       <%= link_to 'Show', post_path(post) %>
       <%= link_to 'Update', edit_post_path(post) %>
       <%= link_to 'Delete', post_path(post),
@@ -87,31 +55,3 @@
   </div>
   </div>
 </div>
-
-
-<%# <h1>Listing Posts</h1>
- 
-<table>
-  <tr>
-    <th>Post</th>
-    <th>Like</th>
-    <th>Comments</th>
-    <th colspan="2"></th>
-
-
-    <th></th>
-  </tr>
- 
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%#= post.postadd %></td>
-      <td><%#= post.likes.count %></td>
-      <td><%#= post.comments.count %></td>
-      <td><%#= link_to 'Show', post_path(post) %></td>
-      <td><%#= link_to 'Update', edit_post_path(post) %></td>
-      <td><%#= link_to 'Delete', post_path(post),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <%# end %>
-</table> 

@@ -8,7 +8,11 @@ class LikesController < ApplicationController
       else
         @post.likes.create(user_id: current_user.id)
       end
-    redirect_to post_path(@post)
+    # redirect_to post_path(@post)
+    respond_to do |format|
+      format.html {redirect_to post_path(@post)}
+      format.js {render "posts/like.js.erb"}
+    end
   end
   def destroy
     if !(already_liked?)
@@ -16,7 +20,10 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
-    redirect_to post_path(@post)
+    respond_to do |format|
+      format.html {redirect_to  post_path(@post)}
+      format.js {render "posts/like.js.erb"}
+    end
   end
   private
   def find_post

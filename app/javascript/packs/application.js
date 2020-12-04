@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 import "bootstrap"
 
-
+import "bootstrap-datepicker"
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,5 +18,11 @@ import "bootstrap"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//= require bootstrap-datepicker
+
 require("trix")
 require("@rails/actiontext")
+require("packs/example")
+
+import jquery from 'jquery';
+window.$ = window.jquery = jquery;
